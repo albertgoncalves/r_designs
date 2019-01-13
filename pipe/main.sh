@@ -2,6 +2,24 @@
 
 # via https://geoinformatics.uk/posts/r-patterns.html
 
-cd src/
-cat ../data.csv | Rscript square.R | Rscript cube.R
-cat ../data.csv | Rscript cube.R | Rscript square.R
+set -e
+
+data() {
+    cat ../data.csv
+}
+
+square() {
+    Rscript square.R
+}
+
+cube() {
+    Rscript cube.R
+}
+
+main() {
+    cd src/
+    data | square | cube
+    data | cube | square
+}
+
+main
