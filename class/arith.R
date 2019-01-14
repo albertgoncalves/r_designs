@@ -3,7 +3,13 @@
 # via https://geoinformatics.uk/posts/r-patterns.html
 
 (function() {
-    return(list( square=function(a) return(a * a)
-               , cube=function(a) return(a * a * a)
-               ))
+    square = function(x) {
+        return(x * x)
+    }
+
+    cube = function(x) {
+        return(x * x * x)
+    }
+
+    return(list(square=square, cube=cube))
 })()
