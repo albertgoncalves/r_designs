@@ -5,6 +5,7 @@ with pkgs; mkShell {
                     rPackages.lintr
                     glibcLocales
                     gawk
+                    python36Packages.csvkit
                   ];
     shellHook = ''
         if [ $(uname -s) = "Darwin" ]; then

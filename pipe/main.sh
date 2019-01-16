@@ -4,6 +4,12 @@
 
 set -e
 
+main() {
+    cd src/
+    data | square | cube
+    data | cube | square
+}
+
 data() {
     cat ../data.csv
 }
@@ -14,12 +20,6 @@ square() {
 
 cube() {
     Rscript cube.R
-}
-
-main() {
-    cd src/
-    data | square | cube
-    data | cube | square
 }
 
 main
