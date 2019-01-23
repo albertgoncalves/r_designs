@@ -14,8 +14,8 @@ with pkgs; mkShell {
         fi
 
         lintr() {
-            R -e "library(lintr); lint('$1')" | \
-                awk '/> /{ found=1 } { if (found) print }'
+            R -e "library(lintr); lint('$1')" \
+                | awk '/> /{ found=1 } { if (found) print }'
         }
 
         export -f lintr
