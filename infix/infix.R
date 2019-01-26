@@ -29,12 +29,16 @@ if (sys.nframe() == 0) {
         return(rep(x, x))
     }
 
-    exprs = list( x %|>% f(x) %|>% g %|>% head %|>% sum
-                , (sum %.% head %.% g %.% f(x))(x)
-                , (f(x) %|.% g %|.% head %|.% sum)(x)
+    y = function(xx) {
+        return(xx %|>% f(x) %|>% g %|>% head %|>% sum)
+    }
+
+    exprs = list( y
+                , sum %.% head %.% g %.% f(x)
+                , f(x) %|.% g %|.% head %|.% sum
                 )
 
     for (expr in exprs) {
-        print(expr)
+        print(expr(x))
     }
 }
