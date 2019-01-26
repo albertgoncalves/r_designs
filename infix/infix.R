@@ -33,12 +33,12 @@ if (sys.nframe() == 0) {
         return(xx %|>% f(x) %|>% g %|>% head %|>% sum)
     }
 
-    exprs = list( y
-                , sum %.% head %.% g %.% f(x)
-                , f(x) %|.% g %|.% head %|.% sum
-                )
+    es = list( y
+             , sum %.% head %.% g %.% f(x)
+             , f(x) %|.% g %|.% head %|.% sum
+             )
 
-    for (expr in exprs) {
-        print(expr(x))
+    for (e in es) {
+        print(e(x))
     }
 }
