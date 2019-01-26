@@ -2,14 +2,20 @@
 
 # via https://geoinformatics.uk/posts/r-patterns.html
 
-obj = function(path) {
+obj_file = function(path) {
     return(source(path)$value)
 }
 
-if (sys.nframe() == 0) {
-    arith = obj("arith.R")
+main = function() {
+    f = obj_file("object.R")
 
-    for (op in c("square", "cube")) {
-        print(arith[[op]](3))
+    for (x in 2:6) {
+        print(f(x))
     }
+
+    print(ls())
+}
+
+if (sys.nframe() == 0) {
+    main()
 }
