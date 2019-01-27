@@ -7,18 +7,22 @@ f = function(a, b, c) {
     }
 }
 
-main = function() {
-    a = "String"
-    b = 1000L
-    c = TRUE
+inject = function(f, xs) {
+    do.call(deparse(substitute(f)), xs)
+}
 
-    args = list(a, b, c)
-    kwargs = list(c=a, a=b, b=c)
-    mixed = list(c=a, c, b=b)
+main = function() {
+    d = "String"
+    e = 1000L
+    f = TRUE
+
+    args = list(d, e, f)
+    kwargs = list(a=d, b=e, c=f)
+    mixed = list(c=d, f, b=e)
 
     for (xs in list(args, kwargs, mixed)) {
         cat("\n")
-        do.call(f, xs)
+        inject(f, xs)
     }
 }
 
