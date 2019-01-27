@@ -7,7 +7,7 @@ f = function(a, b, c) {
     }
 }
 
-if (sys.nframe() == 0) {
+main = function() {
     a = "String"
     b = 1000L
     c = TRUE
@@ -20,4 +20,8 @@ if (sys.nframe() == 0) {
         cat("\n")
         do.call(f, xs)
     }
+}
+
+if (sys.nframe() == 0) {
+    main()
 }
