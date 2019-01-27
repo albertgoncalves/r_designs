@@ -1,16 +1,16 @@
 #!/usr/bin/env Rscript
 
-'%|>%' = function(x, f) {
+"%|>%" = function(x, f) {
     return(f(x))
 }
 
-'%.%' = function(f, g) {
+"%.%" = function(f, g) {
     return(function(x) {
         f(g(x))
     })
 }
 
-'%|.%' = function(f, g) {
+"%|.%" = function(f, g) {
     return(function(x) {
         g(f(x))
     })
