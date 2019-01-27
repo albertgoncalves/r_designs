@@ -8,7 +8,7 @@ f = function(a, b, c) {
 }
 
 inject = function(f, xs) {
-    do.call(deparse(substitute(f)), xs)
+    return(do.call(deparse(substitute(f)), xs))
 }
 
 main = function() {
