@@ -11,6 +11,11 @@ inject = function(f, xs) {
     return(do.call(deparse(substitute(f)), xs))
 }
 
+"%()%" = function(f, xs) {
+    return(inject(f, xs))
+}
+
+
 main = function() {
     d = "String"
     e = 1000L
@@ -22,7 +27,7 @@ main = function() {
 
     for (xs in list(args, kwargs, mixed)) {
         cat("\n")
-        inject(f, xs)
+        f %()% xs
     }
 }
 
