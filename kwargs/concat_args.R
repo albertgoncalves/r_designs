@@ -4,6 +4,10 @@
     return(do.call(deparse(substitute(f)), xs))
 }
 
+"%^%" = function(a, b) {
+    return(c(a, b))
+}
+
 main = function() {
     n = 75
     x = 1:n
@@ -26,7 +30,7 @@ main = function() {
 
     for (t in types) {
         main = sprintf("type='%s'", t)
-        plot %()% c(args, list(type=t, main=main))
+        plot %()% (args %^% list(type=t, main=main))
     }
 }
 
